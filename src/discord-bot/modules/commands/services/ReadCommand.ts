@@ -23,7 +23,7 @@ async function reactCommand(message: Message): Promise<void> {
   try {
     const handler: Handler = Router.getHandlerForCommand(command);
     const controllerResponse: Response = await handler(command);
-    const discordMessage = controllerResponse.resolve();
+    const discordMessage: MessageOptions = controllerResponse.resolve();
     await message.channel.send(discordMessage);
   } catch (error) {
     if (error instanceof AppError) return;

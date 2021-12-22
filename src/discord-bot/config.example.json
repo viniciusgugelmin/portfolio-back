@@ -1,0 +1,13 @@
+{
+	"GOOGLE_TOKEN": "",
+	"GOOGLE_ENGINE_TOKEN": "",
+	"BOT_TOKEN": "",
+	"BOT_NAME": "Portfolio Bot",
+	"PREFIX": "$",
+	"DB": {
+		"HOST": "localhost",
+		"DATABASE": "portfolio",
+		"USERNAME": "",
+		"PASSWORD": ""
+	}
+}

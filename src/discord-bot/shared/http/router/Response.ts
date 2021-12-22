@@ -28,9 +28,6 @@ export default class Response {
   }
 
   protected toJsonString(content: object): string {
-    // @ts-ignore
-    if ('code' in this.discordMessage) this.discordMessage.code = 'json';
-
     return JSON.stringify(content, null, 2);
   }
 }

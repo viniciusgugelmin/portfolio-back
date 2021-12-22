@@ -9,6 +9,7 @@ import { Client, Intents } from 'discord.js';
 import AppError from 'shared/errors/AppErorr';
 import ReadCommand from '@botModules/commands/services/ReadCommand';
 import routes from '@botShared/http/router/routes';
+import '@shared/typeorm';
 
 async function serve(): Promise<void> {
   console.log('starting Discord bot...');
