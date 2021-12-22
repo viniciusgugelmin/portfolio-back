@@ -35,11 +35,27 @@
     // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     "baseUrl": "./src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
-      "@botConfig/*": [
-        "discord-bot/config/*"
+      "@bot/*": [
+        "discord-bot/*"
       ],
       "@botAssets/*": [
         "discord-bot/assets/*"
+      ],
+      "@botConfig/*": [
+        "discord-bot/config/*"
+      ],
+      "@botModules/*": [
+        "discord-bot/modules/*"
+      ],
+      "@botResources/*": [
+        "discord-bot/resources/*"
+      ],
+      "@botShared/*": [
+        "discord-bot/shared/*"
+      ],
+
+      "@modules/*": [
+        "modules/*"
       ]
     },
     /* Specify a set of entries that re-map imports to additional lookup locations. */

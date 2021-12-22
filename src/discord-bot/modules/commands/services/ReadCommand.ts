@@ -1,0 +1,37 @@
+import isCommand from '@botModules/commands/middlewares/isCommand';
+import { Client, Message, MessageOptions } from 'discord.js';
+import PrepareCommand from '@bot/modules/commands/services/PrepareCommand';
+import { Handler } from '@bot/@types/discord';
+import Router from '@botShared/http/router/Router';
+import Response from '@botShared/http/router/Response';
+import AppError from 'shared/errors/AppErorr';
+
+export default (bot: Client): void => {
+  bot.on('messageCreate', async (message: Message): Promise<void> => {
+    if (await isCommand(message)) {
+      await reactCommand(message);
+      return;
+    }
+
+    await reactMessage(message);
+  });
+};
+
+async function reactCommand(message: Message): Promise<void> {
+  const command = PrepareCommand(message);
+
+  try {
+    const handler: Handler = Router.getHandlerForCommand(command);
+    const controllerResponse: Response = await handler(command);
+    const discordMessage = controllerResponse.resolve();
+    await message.channel.send(discordMessage);
+  } catch (error) {
+    if (error instanceof AppError) return;
+
+    new AppError(`Error trying to get command response - ${error}`);
+  }
+}
+
+async function reactMessage(message: Message): Promise<void> {
+  return;
+}

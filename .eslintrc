@@ -13,6 +13,8 @@
   ],
   "rules": {
     "no-console": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 }

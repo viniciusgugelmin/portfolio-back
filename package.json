@@ -1,14 +1,14 @@
 {
 	"name": "portfolio-back",
 	"version": "1.0.0",
-	"main": "src/discord-bot/server.ts",
+	"main": "src/discord-bot/shared/http/server.ts",
 	"repository": "https://github.com/viniciusgugelmin/portfolio-back.git",
 	"author": "<vinigugelmin@gmail.com>",
 	"license": "MIT",
 	"private": false,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
-		"watch-bot": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/discord-bot/server.ts",
+		"watch-bot": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/discord-bot/shared/http/server.ts",
 		"lint": "eslint . --ext .js",
 		"lint-fix": "eslint . --ext .js --fix"
 	},
