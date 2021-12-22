@@ -1,0 +1,5 @@
+discord-bot/config.json
+node_modules
+.idea
+
+ormconfig.json

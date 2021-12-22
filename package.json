@@ -1,0 +1,26 @@
+{
+	"name": "portfolio-back",
+	"version": "1.0.0",
+	"main": "discord-bot/index.js",
+	"repository": "https://github.com/viniciusgugelmin/portfolio-back.git",
+	"author": "<vinigugelmin@gmail.com>",
+	"license": "MIT",
+	"private": false,
+	"dependencies": {
+		"discord.js": "^13.2.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
+		"start-bot": "node discord-bot/index.js",
+    "watch-bot": "nodemon discord-bot/index.js",
+		"lint": "eslint . --ext .js",
+		"lint-fix": "eslint . --ext .js --fix"
+	},
+	"devDependencies": {
+		"eslint": "^8.5.0",
+		"eslint-config-prettier": "6.15.0",
+		"eslint-plugin-prettier": "3.2.0",
+		"nodemon": "^2.0.15",
+		"prettier": "^2.5.1"
+	}
+}
