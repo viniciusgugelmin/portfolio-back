@@ -1,18 +1,14 @@
 {
 	"name": "portfolio-back",
 	"version": "1.0.0",
-	"main": "discord-bot/index.js",
+	"main": "src/discord-bot/server.ts",
 	"repository": "https://github.com/viniciusgugelmin/portfolio-back.git",
 	"author": "<vinigugelmin@gmail.com>",
 	"license": "MIT",
 	"private": false,
-	"dependencies": {
-		"discord.js": "^13.2.0"
-	},
 	"scripts": {
 		"test": "echo \"Error: no test specified\" &amp;&amp; exit 1",
-		"start-bot": "node discord-bot/index.js",
-    "watch-bot": "nodemon discord-bot/index.js",
+		"watch-bot": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/discord-bot/server.ts",
 		"lint": "eslint . --ext .js",
 		"lint-fix": "eslint . --ext .js --fix"
 	},
@@ -21,6 +17,36 @@
 		"eslint-config-prettier": "6.15.0",
 		"eslint-plugin-prettier": "3.2.0",
 		"nodemon": "^2.0.15",
-		"prettier": "^2.5.1"
-	}
+		"prettier": "^2.5.1",
+		"ts-node-dev": "^1.1.8",
+		"tsconfig-paths": "^3.12.0",
+		"typescript": "^4.5.4",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/joi": "^17.2.3",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^16.11.12",
+    "@types/nodemailer": "^6.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0"
+	},
+  "dependencies": {
+    "discord.js": "^13.2.0",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^10.4.0",
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.0",
+    "cors": "^2.8.5",
+    "date-fns": "^2.27.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.2",
+    "pg": "^8.7.1",
+    "typeorm": "^0.2.41"
+  }
 }

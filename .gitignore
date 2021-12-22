@@ -1,5 +1,9 @@
-discord-bot/config.json
-node_modules
-.idea
+node_modules/
+.idea/
+build/
+temp/
+dist/
 
+.env
+src/discord-bot/config.json
 ormconfig.json
