@@ -1,9 +1,12 @@
 import { Handler } from '@bot/@types/discord';
-import AppError from 'shared/errors/AppErorr';
 import ICommand from '@botModules/commands/interfaces/ICommand';
 
 export default class Router {
   private static routeFunctionRecord: Record<string, Handler | void> = {};
+
+  static get(): Record<string, Handler | void> {
+    return this.routeFunctionRecord;
+  }
 
   static make(endpoint: string, callback: Handler | void): void {
     this.routeFunctionRecord[endpoint] = callback;
@@ -16,8 +19,6 @@ export default class Router {
       return controllerCallback;
     }
 
-    throw new AppError(
-      `Unknown route to process the command ${command.command}`,
-    );
+    throw new Error(`Unknown route to process the command ${command.command}`);
   }
 }

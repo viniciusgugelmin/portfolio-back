@@ -21,13 +21,6 @@ export class UsersRepositories extends Repository<User> {
     return await hash(password, 8);
   }
 
-  public async generateToken(user_id: string): Promise<string> {
-    const user = await this.findOne({ where: { user_id } });
-    const userToString = JSON.stringify(user);
-
-    return await hash(userToString, 8);
-  }
-
   public generateSlug(name: string, lastname: string): string {
     const newName = RemoveMessageDiacritics(name).toLocaleLowerCase();
     const newLastname = RemoveMessageDiacritics(lastname).toLocaleLowerCase();

@@ -6,28 +6,16 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity('users')
-export default class User {
+@Entity('users_tokens')
+class UserToken {
   @PrimaryGeneratedColumn('increment')
   id: string;
 
   @Column()
-  name: string;
+  token: string;
 
   @Column()
-  lastname: string;
-
-  @Column()
-  email: string;
-
-  @Column()
-  password: string;
-
-  @Column()
-  slug: string;
-
-  @Column()
-  avatar: string;
+  user_id: string;
 
   @CreateDateColumn()
   created_at: Date;
@@ -35,3 +23,5 @@ export default class User {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export default UserToken;

@@ -1,3 +1,6 @@
+import IRequestError from '@bot/requests/interfaces/IRequestError';
+import { errors } from 'celebrate';
+
 interface IDiscordMessage {
   content: string;
   code: string;
@@ -28,6 +31,26 @@ export default class Response {
   }
 
   protected toJsonString(content: object): string {
-    return JSON.stringify(content, null, 2);
+    const contentToStringify = this.manageObjectContent(content);
+    return JSON.stringify(contentToStringify, null, 2);
+  }
+
+  private manageObjectContent(content: object): object | IRequestError[] {
+    // @ts-ignore
+    if ('validation' in content && 'errors' in content.validation) {
+      return this.getValitionResponse(content);
+    }
+
+    return content;
+  }
+
+  private getValitionResponse(content: object): IRequestError[] {
+    const errors: IRequestError[] = [];
+    // @ts-ignore
+    for (const error of content.validation.errors) {
+      errors.push(error);
+    }
+
+    return errors;
   }
 }

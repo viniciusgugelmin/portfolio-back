@@ -26,7 +26,10 @@ async function reactCommand(message: Message): Promise<void> {
     const discordMessage: MessageOptions = controllerResponse.resolve();
     await message.channel.send(discordMessage);
   } catch (error) {
-    if (error instanceof AppError) return;
+    if (error instanceof AppError) {
+      message.channel.send(error.message);
+      return;
+    }
 
     new AppError(`Error trying to get command response - ${error}`);
   }

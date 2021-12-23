@@ -1,4 +1,4 @@
-import IBaseRequest from '@bot/requests/IBaseRequest';
+import IBaseRequest from '@bot/requests/interfaces/IBaseRequest';
 
 export default abstract class BaseRequest {
   readonly method: string;

@@ -1,6 +1,8 @@
 import Router from '@botShared/http/router/Router';
-import UserController from '@botModules/users/controllers/UserController';
+import routes from '@botAssets/routes';
 
 export default (): void => {
-  Router.make('/create-user', UserController.post);
+  for (const route of routes()) {
+    Router.make(route[0], route[1]);
+  }
 };

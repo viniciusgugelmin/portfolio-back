@@ -2,10 +2,17 @@ import ICommand from '@botModules/commands/interfaces/ICommand';
 import Response from '@botShared/http/router/Response';
 import CreateUserService from '@modules/users/services/CreateUserService';
 import UserRequest from '@botModules/users/requests/UserRequest';
-import IBaseRequest from '@bot/requests/IBaseRequest';
-import AppError from '@shared/errors/AppErorr';
+import IBaseRequest from '@bot/requests/interfaces/IBaseRequest';
+import ListUserService from '@modules/users/services/ListUserService';
 
 export default class UserController {
+  static async index(command: ICommand): Promise<Response> {
+    const listUserService = new ListUserService();
+    const users = await listUserService.execute();
+
+    return new Response(users);
+  }
+
   static async post(command: ICommand): Promise<Response> {
     const { params }: ICommand = command;
     const userRequest: UserRequest = new UserRequest('POST', params);
@@ -17,8 +24,8 @@ export default class UserController {
 
     const [name, lastname, email, password, rootPassword] = params;
 
-    const createUser = new CreateUserService();
-    const user = await createUser.execute({
+    const createUserService = new CreateUserService();
+    const user = await createUserService.execute({
       name,
       lastname,
       email,
