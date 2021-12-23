@@ -3,10 +3,9 @@ import { Message } from 'discord.js';
 
 export default (message: Message): ICommand => {
   const [command, ...params] = message.content.split(' ');
-  const response = {
-    command: command.slice(1, command.length),
+
+  return {
+    command,
     params,
   };
-
-  return response;
 };

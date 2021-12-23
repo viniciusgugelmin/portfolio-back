@@ -3,7 +3,8 @@
 	"GOOGLE_ENGINE_TOKEN": "",
 	"BOT_TOKEN": "",
 	"BOT_NAME": "Portfolio Bot",
-	"PREFIX": "$",
+	"PREFIX": "/",
+  "ROOT_PASSWORD": "",
 	"DB": {
 		"HOST": "localhost",
 		"DATABASE": "portfolio",

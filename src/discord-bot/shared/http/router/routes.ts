@@ -1,6 +1,6 @@
 import Router from '@botShared/http/router/Router';
-import TestController from '@botModules/test/controllers/TestController';
+import UserController from '@botModules/users/controllers/UserController';
 
 export default (): void => {
-  Router.make('teste', TestController.get);
+  Router.make('/create-user', UserController.post);
 };
