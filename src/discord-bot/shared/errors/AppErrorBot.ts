@@ -1,11 +1,8 @@
-export default class AppError {
-  public readonly message: string;
-  public readonly statusCode: number;
+import AppError from '@shared/errors/AppError';
 
+export default class AppErrorBot extends AppError {
   constructor(message: string, statusCode = 400) {
-    this.message = message;
-    this.statusCode = statusCode;
-
+    super(message, statusCode);
     this.showError();
   }
 

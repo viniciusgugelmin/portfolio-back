@@ -4,7 +4,7 @@ import PrepareCommand from '@bot/modules/commands/services/PrepareCommand';
 import { Handler } from '@bot/@types/discord';
 import Router from '@botShared/http/router/Router';
 import Response from '@botShared/http/router/Response';
-import AppError from 'shared/errors/AppErorr';
+import AppErrorBot from '@botShared/errors/AppErrorBot';
 
 export default (bot: Client): void => {
   bot.on('messageCreate', async (message: Message): Promise<void> => {
@@ -26,12 +26,12 @@ async function reactCommand(message: Message): Promise<void> {
     const discordMessage: MessageOptions = controllerResponse.resolve();
     await message.channel.send(discordMessage);
   } catch (error) {
-    if (error instanceof AppError) {
+    if (error instanceof AppErrorBot) {
       message.channel.send(error.message);
       return;
     }
 
-    new AppError(`Error trying to get command response - ${error}`);
+    new AppErrorBot(`Error trying to get command response - ${error}`);
   }
 }
 

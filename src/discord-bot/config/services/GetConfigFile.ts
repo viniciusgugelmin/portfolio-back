@@ -1,6 +1,6 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
-import AppError from 'shared/errors/AppErorr';
+import AppErrorBot from '@botShared/errors/AppErrorBot';
 
 export default async (): Promise<unknown> => {
   try {
@@ -11,7 +11,7 @@ export default async (): Promise<unknown> => {
     // @ts-ignore
     return JSON.parse(file);
   } catch (error) {
-    new AppError(`Error trying to read config.json - ${error}`);
+    new AppErrorBot(`Error trying to read config.json - ${error}`);
     return null;
   }
 };

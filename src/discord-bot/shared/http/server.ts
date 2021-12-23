@@ -6,16 +6,15 @@ import GetConfigFile from '@botConfig/services/GetConfigFile';
 import isAllowed from '@botModules/users/middlewares/isAllowed';
 import 'reflect-metadata';
 import { Client, Intents } from 'discord.js';
-import AppError from 'shared/errors/AppErorr';
+import AppErrorBot from '@botShared/errors/AppErrorBot';
 import ReadCommand from '@botModules/commands/services/ReadCommand';
 import routes from '@botShared/http/router/routes';
-import '@shared/typeorm';
 
-async function serve(): Promise<void> {
+export default async function serveDiscordBot(): Promise<void> {
   console.log('starting Discord bot...');
 
   if (!isAllowed()) {
-    throw new AppError('Discord bot cannot be started');
+    throw new AppErrorBot('Discord bot cannot be started');
   }
 
   const config = await GetConfigFile();
@@ -32,9 +31,7 @@ async function serve(): Promise<void> {
     // @ts-ignore
     .login(config.BOT_TOKEN)
     .then(() => console.log('Discord bot started!'))
-    .catch(() => new AppError('Error trying to connect Discord bot', 401));
+    .catch(() => new AppErrorBot('Error trying to connect Discord bot', 401));
 
   routes();
 }
-
-serve().catch(() => console.log('stopping Discord bot...'));

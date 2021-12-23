@@ -7,3 +7,6 @@ dist/
 .env
 src/discord-bot/config.json
 ormconfig.json
+
+uploads/*
+!uploads/.gitkeep

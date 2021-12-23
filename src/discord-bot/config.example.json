@@ -4,11 +4,5 @@
 	"BOT_TOKEN": "",
 	"BOT_NAME": "Portfolio Bot",
 	"PREFIX": "/",
-  "ROOT_PASSWORD": "",
-	"DB": {
-		"HOST": "localhost",
-		"DATABASE": "portfolio",
-		"USERNAME": "",
-		"PASSWORD": ""
-	}
+  "ROOT_PASSWORD": ""
 }

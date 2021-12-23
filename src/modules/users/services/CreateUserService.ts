@@ -2,7 +2,7 @@ import User from '@modules/users/typeorm/entities/User';
 import { getCustomRepository } from 'typeorm';
 import { UsersRepositories } from '@modules/users/typeorm/repositories/UsersRepositories';
 import getConfigFile from '@botConfig/services/GetConfigFile';
-import AppError from '@shared/errors/AppErorr';
+import AppErrorBot from '@botShared/errors/AppErrorBot';
 
 interface IRequest {
   name: string;
@@ -24,14 +24,14 @@ export default class CreateUserService {
 
     // @ts-ignore
     if (rootPassword !== config.ROOT_PASSWORD) {
-      throw new AppError('Root password is invalid');
+      throw new AppErrorBot('Root password is invalid');
     }
 
     const usersRepository = getCustomRepository(UsersRepositories);
     const emailExists = await usersRepository.findByEmail(email);
 
     if (emailExists) {
-      throw new AppError(`Email address ${email} already used`);
+      throw new AppErrorBot(`Email address ${email} already used`);
     }
 
     const slug = await usersRepository.generateSlug(name, lastname);
