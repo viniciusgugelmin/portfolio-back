@@ -7,7 +7,7 @@ export default (): (
   | string
   | ((command: ICommand) => Promise<Response>)
 )[][] => [
-  ['/info', CommandsController.index, 'list all commands'],
+  ['/api', CommandsController.index, 'list all commands'],
   ['/users/get', UserController.index, 'list all users'],
   ['/users/post', UserController.post, 'create a user'],
 ];

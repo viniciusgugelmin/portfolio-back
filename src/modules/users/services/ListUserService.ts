@@ -5,6 +5,10 @@ import { UsersRepositories } from '@modules/users/typeorm/repositories/UsersRepo
 export default class ListUserService {
   public async execute(): Promise<User[]> {
     const usersRepository = getCustomRepository(UsersRepositories);
-    return await usersRepository.find();
+    return await usersRepository.find({
+      order: {
+        name: 'ASC',
+      },
+    });
   }
 }

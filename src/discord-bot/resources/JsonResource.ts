@@ -4,7 +4,7 @@ export default abstract class JsonResource {
   entity: object;
   formatedEntity: object;
 
-  protected constructor(entity: object) {
+  constructor(entity: object) {
     this.entity = entity;
     this.tranformEntity();
   }

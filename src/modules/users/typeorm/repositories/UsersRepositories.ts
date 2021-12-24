@@ -6,7 +6,10 @@ import RemoveMessageDiacritics from '@botModules/messages/services/RemoveMessage
 @EntityRepository(User)
 export class UsersRepositories extends Repository<User> {
   public async findBySlug(slug: string): Promise<User | undefined> {
-    return await this.findOne({ where: { slug } });
+    return await this.findOne({
+      relations: ['social_medias'],
+      where: { slug },
+    });
   }
 
   public async findByName(name: string): Promise<User | undefined> {

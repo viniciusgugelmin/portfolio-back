@@ -1,11 +1,9 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import UserController from '@modules/users/controllers/UserController';
 
 const routes = Router();
 
-routes.get('/', (request: Request, response: Response) => {
-  return response.json({
-    prop: 'value',
-  });
-});
+routes.get('/users', UserController.index);
+routes.get('/users/:slug', UserController.get);
 
 export default routes;
